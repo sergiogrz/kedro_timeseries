@@ -1,0 +1,200 @@
+# INPUT DATASETS
+companies_red:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/companies_red.csv
+  layer: raw
+  load_args:
+    parse_dates: ['date']
+  
+companies_500:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/companies_500.csv
+  layer: raw
+  load_args:
+    parse_dates: ['date']
+
+companies:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/companies.csv
+  layer: raw
+  load_args:
+    parse_dates: ['date']
+
+electric_production:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/electric_production_proc.csv
+  layer: raw
+  load_args:
+    parse_dates: ['date']
+
+# DATA PROCESSING PIPELINE OUTPUT
+preprocessed_dataset:
+  type: pandas.ParquetDataSet
+  filepath: data/03_primary/preprocessed_dataset.pq
+  layer: primary
+
+# TRAIN VALIDATION TEST SPLIT PIPELINE OUTPUT
+train:
+  type: pandas.ParquetDataSet
+  filepath: data/05_model_input/train.pq
+  layer: model_input
+
+val:
+  type: pandas.ParquetDataSet
+  filepath: data/05_model_input/validation.pq
+  layer: model_input
+
+train_val:
+  type: pandas.ParquetDataSet
+  filepath: data/05_model_input/train_validation.pq
+  layer: model_input
+
+test:
+  type: pandas.ParquetDataSet
+  filepath: data/05_model_input/test.pq
+  layer: model_input
+
+# TRAINED MODELS
+naive_models:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/naive_model.pkl
+  layer: models
+
+arima_models:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/arima_model.pkl
+  layer: models
+
+autoarima_models:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/autoarima_model.pkl
+  layer: models
+
+prophet_models:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/prophet_model.pkl
+  layer: models
+
+nbeats_model:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/nbeats_model.pkl
+  layer: models
+
+rnn_model:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/rnn_model.pkl
+  layer: models
+
+# FORECASTS
+naive_forecast:
+  type: pandas.ParquetDataSet
+  filepath: data/07_model_output/naive_forecast.pq
+  layer: model_output
+
+arima_forecast:
+  type: pandas.ParquetDataSet
+  filepath: data/07_model_output/arima_forecast.pq
+  layer: model_output
+
+autorima_forecast:
+  type: pandas.ParquetDataSet
+  filepath: data/07_model_output/autoarima_forecast.pq
+  layer: model_output
+
+prophet_forecast:
+  type: pandas.ParquetDataSet
+  filepath: data/07_model_output/prophet_forecast.pq
+  layer: model_output
+
+nbeats_forecast:
+  type: pandas.ParquetDataSet
+  filepath: data/07_model_output/nbeats_forecast.pq
+  layer: model_output
+
+rnn_forecast:
+  type: pandas.ParquetDataSet
+  filepath: data/07_model_output/rnn_forecast.pq
+  layer: model_output
+
+
+##  METRICS
+# MAPE
+MAPE_avg:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MAPE_p25:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MAPE_p50:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MAPE_p75:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MAPE_p95:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MAPE_p99:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MAPE_w1_avg:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MAPE_w1_p75:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MAPE_w2_avg:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MAPE_w2_p75:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MAPE_w3_avg:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MAPE_w3_p75:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MAPE_w4_avg:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MAPE_w4_p75:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+  
+
+# MASE
+MASE_avg:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MASE_p25:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MASE_p50:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MASE_p75:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MASE_p95:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MASE_p99:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MASE_w1_avg:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MASE_w1_p75:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MASE_w2_avg:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MASE_w2_p75:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MASE_w3_avg:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MASE_w3_p75:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MASE_w4_avg:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+MASE_w4_p75:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+
+
+# COMPUTATIONAL COMPLEXITY
+# FIT
+fit1_avg_total_time:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+fit2_total_obs:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+fit3_avg_series_time:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+fit4_series_obs:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+fit5_memory_peak:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+
+# PREDICT
+pred1_avg_series_per_sec:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet
+pred2_memory_peak:
+  type: kedro_mlflow.io.metrics.MlflowMetricDataSet

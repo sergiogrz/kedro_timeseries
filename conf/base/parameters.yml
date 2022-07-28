@@ -1,0 +1,16 @@
+# Train validation test split
+train_val_test_split:
+  val_size: 12
+  test_size: 12
+
+# Predict
+predict:
+  n_periods: 12
+
+# Evaluate
+evaluate:
+  window_forecast: 3  # size (number of periods) of each window forecast
+
+# Number of trials to measure computational complexity of the model (> 1)
+complexity:
+  n_trials: 5

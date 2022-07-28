@@ -1,0 +1,7 @@
+# RNN parameters
+fit_rnn:
+  input_chunk_length: 24
+  hidden_dim: 25
+  n_rnn_layers: 6
+  n_epochs: 100
+  model: 'RNN'

@@ -1,0 +1,9 @@
+# AutoARIMA parameters
+fit_autoarima:
+  start_p: 1
+  start_q: 1
+  max_p: 12
+  max_q: 12
+  max_order: None
+  m: 12  # period for seasonal differencing: 4 for quarterly data, 12 for monthly data, or 1 for annual (non-seasonal) data
+  model: 'AutoARIMA'

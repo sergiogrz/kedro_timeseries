@@ -1,0 +1,4 @@
+artifact_location: file:///home/sgrodriguez/Proyectos/TimeSeries/kedro_timeseries/mlruns/1
+experiment_id: '1'
+lifecycle_stage: active
+name: time_series

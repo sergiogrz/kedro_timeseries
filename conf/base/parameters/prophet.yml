@@ -1,0 +1,7 @@
+# Prophet parameters
+fit_prophet:
+  seasonality_mode: 'multiplicative'
+  seasonality_prior_scale: 0.001
+  changepoint_prior_scale: 0.05
+  changepoint_range: 0.9
+  model: 'Prophet'
